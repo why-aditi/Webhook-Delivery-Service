@@ -24,12 +24,15 @@ export default function DeliveryLogs() {
   const fetchDeliveries = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await api.get(`/subscriptions/${subscriptionId}/deliveries`);
-      setDeliveries(response.data.deliveries || []);
+      const response = await api.get(`/api/subscriptions/${subscriptionId}/deliveries`);
+      console.log('API Response:', response.data);
+      const deliveries = response.data.recent_deliveries || [];
+      console.log('Processed Deliveries:', deliveries);
+      setDeliveries(deliveries);
       setError(null);
     } catch (err) {
-      setError('Failed to fetch deliveries');
       console.error('Error fetching deliveries:', err);
+      setError('Failed to fetch deliveries');
       setDeliveries([]);
     } finally {
       setLoading(false);
@@ -38,7 +41,8 @@ export default function DeliveryLogs() {
 
   const fetchDeliveryHistory = async (deliveryId) => {
     try {
-      const response = await api.get(`/deliveries/${deliveryId}/history`);
+      const response = await api.get(`/api/deliveries/${deliveryId}/history`);
+      console.log('Delivery History Response:', response.data);
       setDeliveryHistory(response.data);
     } catch (err) {
       console.error('Error fetching delivery history:', err);
@@ -88,7 +92,11 @@ export default function DeliveryLogs() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className={`px-2 py-1 rounded-full text-sm font-medium ${
-                        delivery.status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                        delivery.status === 'delivered' ? 'bg-green-100 text-green-800' : 
+                        delivery.status === 'failed' ? 'bg-red-100 text-red-800' :
+                        delivery.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                        delivery.status === 'in_progress' ? 'bg-blue-100 text-blue-800' :
+                        'bg-gray-100 text-gray-800'
                       }`}>
                         {delivery.status}
                       </span>
@@ -97,6 +105,9 @@ export default function DeliveryLogs() {
                       </span>
                     </div>
                     <p className="text-sm text-gray-600">Event Type: {delivery.event_type}</p>
+                    {delivery.error_message && (
+                      <p className="text-sm text-red-600 mt-1">Error: {delivery.error_message}</p>
+                    )}
                   </div>
                 ))
               )}
@@ -117,11 +128,11 @@ export default function DeliveryLogs() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <h4 className="text-sm font-medium text-gray-700">Status</h4>
-                        <p className="text-base text-gray-600">{deliveryHistory.status}</p>
+                        <p className="text-base text-gray-600">{deliveryHistory.current_status}</p>
                       </div>
                       <div>
                         <h4 className="text-sm font-medium text-gray-700">Attempts</h4>
-                        <p className="text-base text-gray-600">{deliveryHistory.attempts.length}</p>
+                        <p className="text-base text-gray-600">{deliveryHistory.total_attempts}</p>
                       </div>
                     </div>
 
@@ -132,22 +143,26 @@ export default function DeliveryLogs() {
                           <div key={index} className="border rounded-lg p-3">
                             <div className="flex justify-between items-center mb-2">
                               <span className={`px-2 py-1 rounded-full text-sm font-medium ${
-                                attempt.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                                attempt.status === 'delivered' ? 'bg-green-100 text-green-800' : 
+                                attempt.status === 'failed' ? 'bg-red-100 text-red-800' :
+                                attempt.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                                attempt.status === 'in_progress' ? 'bg-blue-100 text-blue-800' :
+                                'bg-gray-100 text-gray-800'
                               }`}>
-                                {attempt.success ? 'Success' : 'Failed'}
+                                {attempt.status}
                               </span>
                               <span className="text-sm text-gray-500">
-                                {new Date(attempt.timestamp).toLocaleString()}
+                                {new Date(attempt.created_at).toLocaleString()}
                               </span>
                             </div>
-                            {attempt.response_code && (
+                            {attempt.response_status && (
                               <p className="text-sm text-gray-600">
-                                Response Code: {attempt.response_code}
+                                Response Code: {attempt.response_status}
                               </p>
                             )}
-                            {attempt.error && (
+                            {attempt.error_message && (
                               <p className="text-sm text-red-600 mt-1">
-                                Error: {attempt.error}
+                                Error: {attempt.error_message}
                               </p>
                             )}
                           </div>

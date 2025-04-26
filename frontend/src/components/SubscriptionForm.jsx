@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 
 export default function SubscriptionForm({ onSubscriptionAdded }) {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export default function SubscriptionForm({ onSubscriptionAdded }) {
       // Split event_types into array
       const event_types = formData.event_types.split(',').map(event => event.trim()).filter(Boolean);
 
-      const response = await axios.post('/api/subscriptions', {
+      const response = await api.post('/api/subscriptions', {
         target_url: formData.target_url,
         event_types,
         secret: formData.secret || undefined // Only include if not empty
@@ -98,7 +98,7 @@ export default function SubscriptionForm({ onSubscriptionAdded }) {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full md:w-auto px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-black bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+            className={`w-full md:w-auto px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
               loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >

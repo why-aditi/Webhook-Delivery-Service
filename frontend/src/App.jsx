@@ -37,8 +37,8 @@ function App() {
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <NavLink to="/">Subscriptions</NavLink>
-                  <NavLink to="/new">New Subscription</NavLink>
+                  <NavLink to="/">New Subscription</NavLink>
+                  <NavLink to="/sub">Subscriptions</NavLink>
                   <NavLink to="/test">Test Webhook</NavLink>
                 </div>
               </div>
@@ -48,9 +48,9 @@ function App() {
 
         <main className="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
           <Routes>
-            <Route path="/" element={<SubscriptionList />} />
+            <Route path="/sub" element={<SubscriptionList />} />
             <Route
-              path="/new"
+              path="/"
               element={
                 <SubscriptionForm
                   onSubscriptionAdded={() => {

@@ -49,9 +49,25 @@ export default function WebhookTester() {
         return;
       }
 
+      // Get the selected subscription
+      const subscription = subscriptions.find(sub => sub.id === selectedSubscription);
+      if (!subscription) {
+        setError('Selected subscription not found');
+        setLoading(false);
+        return;
+      }
+
+      // Clean up event types by removing extra quotes
+      const cleanEventTypes = subscription.event_types.map(type => 
+        type.replace(/^"|"$/g, '').replace(/\\"/g, '"')
+      );
+
+      // Use the first allowed event type if none is specified
+      const eventType = parsedData.event_type || cleanEventTypes[0] || 'test_event';
+
       // Ensure the payload matches the expected structure
       const payload = {
-        event_type: parsedData.event_type || 'test_event',
+        event_type: eventType,
         data: parsedData.data || parsedData
       };
 
@@ -62,13 +78,28 @@ export default function WebhookTester() {
         return;
       }
 
-      const response = await api.post(`/ingest/${selectedSubscription}`, payload);
+      // Validate that the event type is allowed
+      if (!cleanEventTypes.includes(payload.event_type)) {
+        setError(`Event type '${payload.event_type}' not allowed for this subscription. Allowed types: ${cleanEventTypes.join(', ')}`);
+        setLoading(false);
+        return;
+      }
 
+      console.log('Sending webhook to subscription:', selectedSubscription);
+      const response = await api.post(`/api/ingest/${selectedSubscription}`, payload);
+      console.log('Webhook response:', response.data);
+
+      if (!response.data?.delivery_id) {
+        throw new Error('No delivery ID received from server');
+      }
+
+      const deliveryId = response.data.delivery_id;
+      console.log('Received delivery ID:', deliveryId);
       setSuccess('Webhook sent successfully');
-      setDeliveryId(response.data.delivery_id);
+      setDeliveryId(deliveryId);
       
       // Start polling for delivery status
-      pollDeliveryStatus(response.data.delivery_id);
+      pollDeliveryStatus(deliveryId);
     } catch (err) {
       const errorMessage = err.response?.data?.detail || 
                           (typeof err.response?.data === 'object' ? JSON.stringify(err.response.data) : err.response?.data) ||
@@ -82,11 +113,19 @@ export default function WebhookTester() {
   };
 
   const pollDeliveryStatus = async (id) => {
+    if (!id) {
+      console.error('No delivery ID provided for polling');
+      return;
+    }
+    
+    console.log('Starting to poll delivery status for ID:', id);
     let attempts = 0;
     const maxAttempts = 10;
     const interval = setInterval(async () => {
       try {
-        const response = await api.get(`/deliveries/${id}`);
+        console.log(`Polling attempt ${attempts + 1} for delivery ID:`, id);
+        const response = await api.get(`/api/deliveries/${id}`);
+        console.log('Delivery status response:', response.data);
         setDeliveryStatus(response.data);
         
         if (response.data.status !== 'pending' || attempts >= maxAttempts) {
@@ -101,14 +140,19 @@ export default function WebhookTester() {
   };
 
   const handleViewHistory = async () => {
-    if (!deliveryId) return;
+    if (!deliveryId) {
+      console.error('No delivery ID available for history');
+      return;
+    }
     
     try {
-      const response = await api.get(`/deliveries/${deliveryId}/history`);
+      console.log('Fetching delivery history for ID:', deliveryId);
+      const response = await api.get(`/api/deliveries/${deliveryId}/history`);
+      console.log('Delivery history response:', response.data);
       setDeliveryStatus(response.data);
     } catch (err) {
-      setError('Failed to fetch delivery history');
       console.error('Error fetching delivery history:', err);
+      setError('Failed to fetch delivery history');
     }
   };
 

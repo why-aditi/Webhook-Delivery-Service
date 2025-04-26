@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TrashIcon, PencilIcon, EyeIcon } from '@heroicons/react/24/outline';
+import { TrashIcon, PencilIcon, EyeIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import EditSubscriptionForm from './EditSubscriptionForm';
 import api from '../utils/api';
 
@@ -10,12 +10,15 @@ export default function SubscriptionList() {
   const [editingSubscription, setEditingSubscription] = useState(null);
   const [selectedDelivery, setSelectedDelivery] = useState(null);
   const [deliveryStatus, setDeliveryStatus] = useState(null);
+  const [expandedSubscriptions, setExpandedSubscriptions] = useState(new Set());
+  const [logs, setLogs] = useState({});
 
   const fetchSubscriptions = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/subscriptions');
-      setSubscriptions(Array.isArray(response.data) ? response.data : response.data.subscriptions || []);
+      const response = await api.get('/subscriptions/');
+      console.log('Subscriptions response:', response.data);
+      setSubscriptions(response.data || []);
       setError(null);
     } catch (err) {
       setError('Failed to fetch subscriptions');
@@ -25,10 +28,42 @@ export default function SubscriptionList() {
       setLoading(false);
     }
   };
+  
+  const fetchLogs = async (subscriptionId) => {
+    try {
+      const response = await api.get(`/subscriptions/${subscriptionId}/deliveries`);
+      console.log('Logs response:', response.data);
+      setLogs(prev => ({
+        ...prev,
+        [subscriptionId]: response.data?.recent_deliveries || []
+      }));
+    } catch (err) {
+      console.error('Error fetching logs:', err);
+      setLogs(prev => ({
+        ...prev,
+        [subscriptionId]: []
+      }));
+    }
+  };
 
   useEffect(() => {
     fetchSubscriptions();
   }, []);
+
+  const toggleSubscription = (subscriptionId) => {
+    setExpandedSubscriptions(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(subscriptionId)) {
+        newSet.delete(subscriptionId);
+      } else {
+        newSet.add(subscriptionId);
+        if (!logs[subscriptionId]) {
+          fetchLogs(subscriptionId);
+        }
+      }
+      return newSet;
+    });
+  };
 
   const deleteSubscription = async (id) => {
     if (!window.confirm('Are you sure you want to delete this subscription?')) {
@@ -36,7 +71,7 @@ export default function SubscriptionList() {
     }
 
     try {
-      await api.delete(`/subscriptions/${id}`);
+      await api.delete(`/api/subscriptions/${id}`);
       setSubscriptions(subscriptions.filter(sub => sub.id !== id));
     } catch (err) {
       setError('Failed to delete subscription');
@@ -100,22 +135,26 @@ export default function SubscriptionList() {
                 </div>
                 <div className="flex space-x-4 ml-4">
                   <button
-                    onClick={() => window.location.href = `/logs/${subscription.id}`}
-                    className="p-2 text-gray-600 hover:text-blue-600"
+                    onClick={() => toggleSubscription(subscription.id)}
+                    className="p-2 bg-white rounded-full text-black hover:bg-gray-100"
                     title="View Logs"
                   >
-                    <EyeIcon className="h-5 w-5" />
+                    {expandedSubscriptions.has(subscription.id) ? (
+                      <ChevronUpIcon className="h-5 w-5" />
+                    ) : (
+                      <ChevronDownIcon className="h-5 w-5" />
+                    )}
                   </button>
                   <button
                     onClick={() => handleEdit(subscription)}
-                    className="p-2 text-gray-600 hover:text-blue-600"
+                    className="p-2 bg-white rounded-full text-black hover:bg-gray-100"
                     title="Edit Subscription"
                   >
                     <PencilIcon className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => deleteSubscription(subscription.id)}
-                    className="p-2 text-gray-600 hover:text-red-600"
+                    className="p-2 bg-white rounded-full text-black hover:bg-gray-100"
                     title="Delete Subscription"
                   >
                     <TrashIcon className="h-5 w-5" />
@@ -123,44 +162,46 @@ export default function SubscriptionList() {
                 </div>
               </div>
 
-              {/* Recent Deliveries Section */}
-              <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-2">Recent Deliveries</h4>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  {subscription.recent_deliveries?.length > 0 ? (
-                    <div className="space-y-2">
-                      {subscription.recent_deliveries.map((delivery) => (
-                        <div
-                          key={delivery.id}
-                          className="flex items-center justify-between p-2 bg-white rounded-md shadow-sm"
-                        >
-                          <div>
-                            <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${
-                              delivery.status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                            }`}>
-                              {delivery.status}
-                            </span>
-                            <span className="ml-2 text-sm text-gray-600">
-                              {new Date(delivery.created_at).toLocaleString()}
-                            </span>
-                          </div>
-                          <button
-                            onClick={() => {
-                              setSelectedDelivery(delivery);
-                              fetchDeliveryStatus(delivery.id);
-                            }}
-                            className="text-sm text-blue-600 hover:text-blue-800"
+              {/* Delivery Logs Section */}
+              {expandedSubscriptions.has(subscription.id) && (
+                <div className="mt-4">
+                  <h4 className="text-sm font-medium text-gray-700 mb-2">Delivery Logs</h4>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    {logs[subscription.id]?.length > 0 ? (
+                      <div className="space-y-2">
+                        {logs[subscription.id].map((log) => (
+                          <div
+                            key={log.id}
+                            className="flex items-center justify-between p-2 bg-white rounded-md shadow-sm"
                           >
-                            View Details
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-sm text-gray-500 text-center">No recent deliveries</p>
-                  )}
+                            <div>
+                              <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${
+                                log.status === 'delivered' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                              }`}>
+                                {log.status}
+                              </span>
+                              <span className="ml-2 text-sm text-gray-600">
+                                {new Date(log.created_at).toLocaleString()}
+                              </span>
+                            </div>
+                            <button
+                              onClick={() => {
+                                setSelectedDelivery(log);
+                                fetchDeliveryStatus(log.id);
+                              }}
+                              className="text-sm text-blue-600 hover:text-blue-800"
+                            >
+                              View Details
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-gray-500 text-center">No delivery logs found</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))
         )}
@@ -171,7 +212,7 @@ export default function SubscriptionList() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-2xl w-full p-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-medium">Delivery Details</h3>
+              <h3 className="text-lg font-medium text-black">Delivery Details</h3>
               <button
                 onClick={() => {
                   setSelectedDelivery(null);
@@ -186,18 +227,18 @@ export default function SubscriptionList() {
               <div>
                 <h4 className="text-sm font-medium text-gray-700">Status</h4>
                 <p className={`mt-1 ${
-                  deliveryStatus.status === 'success' ? 'text-green-600' : 'text-red-600'
+                  deliveryStatus.status === 'delivered' ? 'text-green-600' : 'text-red-600'
                 }`}>
                   {deliveryStatus.status}
                 </p>
               </div>
               <div>
                 <h4 className="text-sm font-medium text-gray-700">Event Type</h4>
-                <p className="mt-1">{deliveryStatus.event_type}</p>
+                <p className="mt-1  text-black">{deliveryStatus.event_type}</p>
               </div>
               <div>
                 <h4 className="text-sm font-medium text-gray-700">Created At</h4>
-                <p className="mt-1">{new Date(deliveryStatus.created_at).toLocaleString()}</p>
+                <p className="mt-1 text-black">{new Date(deliveryStatus.created_at).toLocaleString()}</p>
               </div>
               {deliveryStatus.response_code && (
                 <div>
