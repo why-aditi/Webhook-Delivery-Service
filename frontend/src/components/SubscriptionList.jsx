@@ -176,9 +176,15 @@ export default function SubscriptionList() {
                           >
                             <div>
                               <span className={`inline-block px-2 py-1 text-xs font-medium rounded-full ${
-                                log.status === 'delivered' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                                log.status === 'delivered' 
+                                  ? 'bg-green-100 text-green-800' 
+                                  : log.status === 'failed'
+                                  ? 'bg-red-100 text-red-800'
+                                  : log.status === 'in_progress'
+                                  ? 'bg-yellow-100 text-yellow-800'
+                                  : 'bg-gray-100 text-gray-800'
                               }`}>
-                                {log.status}
+                                {log.status === 'delivered' ? 'Delivered' : log.status}
                               </span>
                               <span className="ml-2 text-sm text-gray-600">
                                 {new Date(log.created_at).toLocaleString()}
@@ -189,7 +195,7 @@ export default function SubscriptionList() {
                                 setSelectedDelivery(log);
                                 fetchDeliveryStatus(log.id);
                               }}
-                              className="text-sm text-blue-600 hover:text-blue-800"
+                              className="text-sm bg-blue-600 text-white"
                             >
                               View Details
                             </button>
