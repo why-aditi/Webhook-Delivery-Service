@@ -6,6 +6,7 @@ from typing import Dict, Any, Optional
 import logging
 from datetime import datetime, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
+from uuid import UUID
 from . import models, cache
 from .models import DeliveryStatus
 import asyncio

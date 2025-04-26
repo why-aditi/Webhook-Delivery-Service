@@ -1,19 +1,35 @@
 import json
 from typing import Optional, Dict, Any
-from redis import asyncio as aioredis
+from redis.asyncio import Redis
 import os
 from dotenv import load_dotenv
 from uuid import UUID
 from . import models
+import logging
 
 load_dotenv()
+
+logger = logging.getLogger(__name__)
+
+# Global redis client
+redis: Optional[Redis] = None
+CACHE_ENABLED = False
 
 # Get Redis configuration from environment variables
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "3600"))  # Default 1 hour TTL
 
-# Create Redis connection pool
-redis = aioredis.from_url(REDIS_URL, encoding="utf-8", decode_responses=True)
+async def init_redis():
+    global redis, CACHE_ENABLED
+    try:
+        redis = Redis(host='localhost', port=6379, decode_responses=True)
+        await redis.ping()
+        CACHE_ENABLED = True
+        logger.info("Redis cache initialized successfully")
+    except Exception as e:
+        logger.warning(f"Redis cache initialization failed: {e}. Running without cache.")
+        CACHE_ENABLED = False
+        redis = None
 
 def subscription_cache_key(subscription_id: UUID) -> str:
     """Generate Redis key for subscription cache."""
@@ -26,19 +42,24 @@ async def cache_subscription(subscription: models.Subscription) -> None:
     Args:
         subscription: Subscription model instance
     """
-    cache_data = {
-        "id": str(subscription.id),
-        "target_url": subscription.target_url,
-        "secret": subscription.secret,
-        "event_types": subscription.event_types
-    }
+    if not CACHE_ENABLED:
+        return
     
-    key = subscription_cache_key(subscription.id)
-    await redis.setex(
-        key,
-        CACHE_TTL,
-        json.dumps(cache_data)
-    )
+    try:
+        cache_data = {
+            "id": str(subscription.id),
+            "target_url": subscription.target_url,
+            "secret": subscription.secret,
+            "event_types": subscription.event_types
+        }
+        
+        await redis.setex(
+            subscription_cache_key(subscription.id),
+            CACHE_TTL,
+            json.dumps(cache_data)
+        )
+    except Exception as e:
+        logger.error(f"Error caching subscription: {e}")
 
 async def get_cached_subscription(subscription_id: UUID) -> Optional[Dict[str, Any]]:
     """
@@ -50,11 +71,15 @@ async def get_cached_subscription(subscription_id: UUID) -> Optional[Dict[str, A
     Returns:
         Dictionary with subscription details if found, None otherwise
     """
-    key = subscription_cache_key(subscription_id)
-    data = await redis.get(key)
-    
-    if data:
-        return json.loads(data)
+    if not CACHE_ENABLED:
+        return None
+        
+    try:
+        data = await redis.get(subscription_cache_key(subscription_id))
+        if data:
+            return json.loads(data)
+    except Exception as e:
+        logger.error(f"Error getting cached subscription: {e}")
     return None
 
 async def invalidate_subscription_cache(subscription_id: UUID) -> None:
@@ -64,9 +89,20 @@ async def invalidate_subscription_cache(subscription_id: UUID) -> None:
     Args:
         subscription_id: UUID of the subscription to remove
     """
-    key = subscription_cache_key(subscription_id)
-    await redis.delete(key)
+    if not CACHE_ENABLED:
+        return
+        
+    try:
+        await redis.delete(subscription_cache_key(subscription_id))
+    except Exception as e:
+        logger.error(f"Error invalidating subscription cache: {e}")
 
 async def close_redis():
     """Close Redis connection."""
-    await redis.close() 
+    global redis, CACHE_ENABLED
+    if redis:
+        await redis.close()
+        redis = None
+    CACHE_ENABLED = False
+
+    logger.info("Redis connection closed") 

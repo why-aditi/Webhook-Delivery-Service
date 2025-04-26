@@ -1,9 +1,15 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, case
+from sqlalchemy import select, func, case, delete
 from . import models, schemas, cache
 from uuid import UUID
 from fastapi import HTTPException
 from .models import DeliveryStatus
+from typing import List
+
+async def list_subscriptions(db: AsyncSession) -> List[models.Subscription]:
+    """Get all subscriptions."""
+    result = await db.execute(select(models.Subscription))
+    return result.scalars().all()
 
 async def create_subscription(db: AsyncSession, subscription: schemas.SubscriptionCreate) -> models.Subscription:
     db_subscription = models.Subscription(
@@ -60,6 +66,13 @@ async def update_subscription(
     return db_subscription
 
 async def delete_subscription(db: AsyncSession, subscription_id: UUID) -> bool:
+    """Delete a subscription and all its associated webhook deliveries."""
+    # First delete all associated webhook deliveries
+    await db.execute(
+        delete(models.WebhookDelivery).where(models.WebhookDelivery.subscription_id == subscription_id)
+    )
+    
+    # Then delete the subscription
     db_subscription = await get_subscription(db, subscription_id)
     await db.delete(db_subscription)
     await db.commit()

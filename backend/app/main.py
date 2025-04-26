@@ -1,18 +1,37 @@
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks, Query
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 from . import crud, models, schemas, cache
 from .database import engine, get_session, async_session_maker
 from uuid import UUID
 from .webhook_processor import process_webhook_delivery, create_delivery_record, retry_failed_deliveries
 import asyncio
+import logging
+from typing import List
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Webhook Delivery Service")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Frontend dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def startup():
     # Create database tables
     async with engine.begin() as conn:
         await conn.run_sync(models.Base.metadata.create_all)
+    
+    # Initialize Redis (now optional)
+    await cache.init_redis()
     
     # Start background task for retrying failed deliveries
     asyncio.create_task(retry_failed_deliveries(async_session_maker))
@@ -21,6 +40,11 @@ async def startup():
 async def shutdown():
     # Close Redis connection
     await cache.close_redis()
+
+@app.get("/subscriptions/", response_model=List[schemas.Subscription])
+async def list_subscriptions(db: AsyncSession = Depends(get_session)):
+    """Get all webhook subscriptions"""
+    return await crud.list_subscriptions(db=db)
 
 @app.post("/subscriptions/", response_model=schemas.Subscription)
 async def create_subscription(
