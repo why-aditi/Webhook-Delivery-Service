@@ -18,7 +18,7 @@ app = FastAPI(title="Webhook Delivery Service")
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:8000"],  # Frontend dev server and backend
+    allow_origins=["http://localhost:5173", "http://localhost:8000", "https://webhook-frontend-aghc.onrender.com"],  # Frontend dev server and backend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
