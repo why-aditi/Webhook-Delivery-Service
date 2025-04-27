@@ -170,7 +170,7 @@ python-jose==3.3.0
 python-multipart==0.0.5
 pytz==2024.2
 pywebpush==2.0.3
-pywin32==308
+pywin32==308; platform_system == "Windows"
 PyYAML==6.0.2
 redis==5.0.1
 referencing==0.36.2
