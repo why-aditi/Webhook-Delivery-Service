@@ -1,0 +1,560 @@
+2025-04-27 12:03:11,521 - __main__ - INFO - Starting worker...
+2025-04-27 12:03:11,531 - __main__ - ERROR - Error in worker loop: [Errno 111] Connect call failed ('172.18.0.3', 5432)
+2025-04-27 12:03:18,277 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2025-04-27 12:03:18,277 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-04-27 12:03:18,279 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2025-04-27 12:03:18,280 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-04-27 12:03:18,281 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2025-04-27 12:03:18,281 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-04-27 12:03:18,282 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:18,285 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:18,286 - sqlalchemy.engine.Engine - INFO - [generated in 0.00034s] ('PENDING',)
+2025-04-27 12:03:18,287 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:18,287 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:23,293 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:23,293 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:23,294 - sqlalchemy.engine.Engine - INFO - [cached since 5.008s ago] ('PENDING',)
+2025-04-27 12:03:23,295 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:23,295 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:28,298 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:28,300 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:28,301 - sqlalchemy.engine.Engine - INFO - [cached since 10.02s ago] ('PENDING',)
+2025-04-27 12:03:28,302 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:28,303 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:33,308 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:33,309 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:33,310 - sqlalchemy.engine.Engine - INFO - [cached since 15.02s ago] ('PENDING',)
+2025-04-27 12:03:33,312 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:33,314 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:38,322 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:38,322 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:38,323 - sqlalchemy.engine.Engine - INFO - [cached since 20.04s ago] ('PENDING',)
+2025-04-27 12:03:38,324 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:38,325 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:43,329 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:43,329 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:43,330 - sqlalchemy.engine.Engine - INFO - [cached since 25.04s ago] ('PENDING',)
+2025-04-27 12:03:43,331 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:43,332 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:50,223 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:50,223 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:50,224 - sqlalchemy.engine.Engine - INFO - [cached since 30.05s ago] ('PENDING',)
+2025-04-27 12:03:50,225 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:50,225 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:03:55,229 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:03:55,229 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:03:55,230 - sqlalchemy.engine.Engine - INFO - [cached since 35.06s ago] ('PENDING',)
+2025-04-27 12:03:55,231 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:03:55,232 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:00,236 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:00,237 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:00,237 - sqlalchemy.engine.Engine - INFO - [cached since 40.07s ago] ('PENDING',)
+2025-04-27 12:04:00,239 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:00,239 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:05,245 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:05,247 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:05,247 - sqlalchemy.engine.Engine - INFO - [cached since 45.08s ago] ('PENDING',)
+2025-04-27 12:04:05,249 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:05,250 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:10,254 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:10,255 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:10,256 - sqlalchemy.engine.Engine - INFO - [cached since 50.08s ago] ('PENDING',)
+2025-04-27 12:04:10,258 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:10,258 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:15,261 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:15,262 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:15,262 - sqlalchemy.engine.Engine - INFO - [cached since 55.09s ago] ('PENDING',)
+2025-04-27 12:04:15,263 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:15,263 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:22,201 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:22,202 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:22,203 - sqlalchemy.engine.Engine - INFO - [cached since 60.1s ago] ('PENDING',)
+2025-04-27 12:04:22,205 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:22,205 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:27,208 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:27,209 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:27,209 - sqlalchemy.engine.Engine - INFO - [cached since 65.1s ago] ('PENDING',)
+2025-04-27 12:04:27,210 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:27,210 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:32,216 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:32,216 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:32,217 - sqlalchemy.engine.Engine - INFO - [cached since 70.11s ago] ('PENDING',)
+2025-04-27 12:04:32,218 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:32,219 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:37,222 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:37,223 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:37,223 - sqlalchemy.engine.Engine - INFO - [cached since 75.12s ago] ('PENDING',)
+2025-04-27 12:04:37,225 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:37,225 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:42,230 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:42,231 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:42,232 - sqlalchemy.engine.Engine - INFO - [cached since 80.13s ago] ('PENDING',)
+2025-04-27 12:04:42,234 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:42,235 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:47,241 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:47,241 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:47,241 - sqlalchemy.engine.Engine - INFO - [cached since 85.14s ago] ('PENDING',)
+2025-04-27 12:04:47,242 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:47,243 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:53,993 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:53,994 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:53,995 - sqlalchemy.engine.Engine - INFO - [cached since 90.15s ago] ('PENDING',)
+2025-04-27 12:04:53,996 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:53,997 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:04:58,999 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:04:59,005 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:04:59,009 - sqlalchemy.engine.Engine - INFO - [cached since 95.16s ago] ('PENDING',)
+2025-04-27 12:04:59,010 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:04:59,013 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:04,019 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:04,019 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:04,020 - sqlalchemy.engine.Engine - INFO - [cached since 100.2s ago] ('PENDING',)
+2025-04-27 12:05:04,021 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:04,022 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:09,027 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:09,028 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:09,028 - sqlalchemy.engine.Engine - INFO - [cached since 105.2s ago] ('PENDING',)
+2025-04-27 12:05:09,029 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:09,030 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:14,035 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:14,036 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:14,037 - sqlalchemy.engine.Engine - INFO - [cached since 110.2s ago] ('PENDING',)
+2025-04-27 12:05:14,038 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:14,039 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:19,042 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:19,042 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:19,043 - sqlalchemy.engine.Engine - INFO - [cached since 115.2s ago] ('PENDING',)
+2025-04-27 12:05:19,043 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:19,044 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:25,887 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:25,888 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:25,888 - sqlalchemy.engine.Engine - INFO - [cached since 120.2s ago] ('PENDING',)
+2025-04-27 12:05:25,891 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:25,892 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:30,897 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:30,898 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:30,899 - sqlalchemy.engine.Engine - INFO - [cached since 125.2s ago] ('PENDING',)
+2025-04-27 12:05:30,900 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:30,900 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:35,904 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:35,905 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:35,905 - sqlalchemy.engine.Engine - INFO - [cached since 130.2s ago] ('PENDING',)
+2025-04-27 12:05:35,906 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:35,907 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:40,910 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:40,910 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:40,911 - sqlalchemy.engine.Engine - INFO - [cached since 135.2s ago] ('PENDING',)
+2025-04-27 12:05:40,912 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:40,913 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:45,918 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:45,919 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:45,919 - sqlalchemy.engine.Engine - INFO - [cached since 140.2s ago] ('PENDING',)
+2025-04-27 12:05:45,921 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:45,921 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:50,926 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:50,927 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:50,928 - sqlalchemy.engine.Engine - INFO - [cached since 145.2s ago] ('PENDING',)
+2025-04-27 12:05:50,929 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:50,930 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:05:57,794 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:05:57,795 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:05:57,795 - sqlalchemy.engine.Engine - INFO - [cached since 150.2s ago] ('PENDING',)
+2025-04-27 12:05:57,796 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:05:57,797 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:02,799 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:02,800 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:02,800 - sqlalchemy.engine.Engine - INFO - [cached since 155.3s ago] ('PENDING',)
+2025-04-27 12:06:02,802 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:02,802 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:07,806 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:07,807 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:07,808 - sqlalchemy.engine.Engine - INFO - [cached since 160.3s ago] ('PENDING',)
+2025-04-27 12:06:07,810 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:07,811 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:12,816 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:12,817 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:12,817 - sqlalchemy.engine.Engine - INFO - [cached since 165.3s ago] ('PENDING',)
+2025-04-27 12:06:12,818 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:12,819 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:17,825 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:17,825 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:17,826 - sqlalchemy.engine.Engine - INFO - [cached since 170.3s ago] ('PENDING',)
+2025-04-27 12:06:17,827 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:17,828 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:22,833 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:22,834 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:22,834 - sqlalchemy.engine.Engine - INFO - [cached since 175.3s ago] ('PENDING',)
+2025-04-27 12:06:22,835 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:22,836 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:29,780 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:29,781 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:29,782 - sqlalchemy.engine.Engine - INFO - [cached since 180.3s ago] ('PENDING',)
+2025-04-27 12:06:29,783 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:29,784 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:34,788 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:34,789 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:34,791 - sqlalchemy.engine.Engine - INFO - [cached since 185.3s ago] ('PENDING',)
+2025-04-27 12:06:34,792 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:34,795 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:39,800 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:39,802 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:39,802 - sqlalchemy.engine.Engine - INFO - [cached since 190.3s ago] ('PENDING',)
+2025-04-27 12:06:39,803 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:39,804 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:44,807 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:44,808 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:44,808 - sqlalchemy.engine.Engine - INFO - [cached since 195.3s ago] ('PENDING',)
+2025-04-27 12:06:44,809 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:44,810 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:49,813 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:49,814 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:49,814 - sqlalchemy.engine.Engine - INFO - [cached since 200.3s ago] ('PENDING',)
+2025-04-27 12:06:49,815 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:49,816 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:06:54,821 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:06:54,821 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:06:54,822 - sqlalchemy.engine.Engine - INFO - [cached since 205.3s ago] ('PENDING',)
+2025-04-27 12:06:54,824 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:06:54,824 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:07:01,404 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:07:01,405 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:07:01,405 - sqlalchemy.engine.Engine - INFO - [cached since 210.3s ago] ('PENDING',)
+2025-04-27 12:07:01,406 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:07:01,407 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:07:06,413 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:07:06,414 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:07:06,415 - sqlalchemy.engine.Engine - INFO - [cached since 215.4s ago] ('PENDING',)
+2025-04-27 12:07:06,418 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:07:06,419 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:07:11,425 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:07:11,426 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:07:11,427 - sqlalchemy.engine.Engine - INFO - [cached since 220.4s ago] ('PENDING',)
+2025-04-27 12:07:11,428 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:07:11,429 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-04-27 12:07:16,430 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-04-27 12:07:16,431 - sqlalchemy.engine.Engine - INFO - SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus
+2025-04-27 12:07:16,431 - sqlalchemy.engine.Engine - INFO - [cached since 225.4s ago] ('PENDING',)
+2025-04-27 12:07:16,432 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-04-27 12:07:16,433 - __main__ - ERROR - Error in worker loop: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "webhook_deliveries" does not exist
+[SQL: SELECT webhook_deliveries.id, webhook_deliveries.subscription_id, webhook_deliveries.event_type, webhook_deliveries.payload, webhook_deliveries.status, webhook_deliveries.retry_count, webhook_deliveries.last_attempt, webhook_deliveries.next_retry, webhook_deliveries.response_status, webhook_deliveries.response_body, webhook_deliveries.error_message, webhook_deliveries.created_at, webhook_deliveries.updated_at 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status = $1::deliverystatus]
+[parameters: ('PENDING',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)

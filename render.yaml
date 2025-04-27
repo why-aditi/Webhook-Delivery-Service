@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: webhook-backend
+    env: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://database_url_uzal_user:6PYHdacF5Gab3qndKQwbSMWJG1O5XfFp@dpg-d071ook9c44c739k4klg-a/database_url_uzal
+      - key: REDIS_URL
+        value: <YOUR_RENDER_REDIS_URL>
+    healthCheckPath: /docs
+    autoDeploy: true
+
+  - type: web
+    name: webhook-frontend
+    env: docker
+    plan: free
+    rootDir: frontend
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        value: https://webhook-backend.onrender.com
+    autoDeploy: true
