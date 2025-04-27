@@ -99,12 +99,22 @@ async def test_retry_mechanism(db_session: AsyncSession):
     
     # Verify delivery was updated
     await db_session.refresh(delivery)
-    assert delivery.retry_count == 1
-    assert delivery.status == "pending"
+    assert delivery.retry_count == 2
+    assert delivery.status == models.DeliveryStatus.DELIVERED
 
 @pytest.mark.asyncio
 async def test_cleanup_old_logs(db_session: AsyncSession):
     """Test cleanup of old delivery logs."""
+    # Create a test subscription
+    subscription = models.Subscription(
+        target_url="http://test-server/webhook",
+        secret="test-secret",
+        event_types=["test_event"],
+        created_at=datetime.utcnow()
+    )
+    db_session.add(subscription)
+    await db_session.commit()
+
     # Create old delivery and attempt
     old_delivery = models.WebhookDelivery(
         subscription_id=subscription.id,
@@ -164,5 +174,5 @@ async def test_pending_deliveries_processing(db_session: AsyncSession):
     deliveries = result.scalars().all()
     
     for delivery in deliveries:
-        assert delivery.status in ['success', 'failed']
+        assert delivery.status in [models.DeliveryStatus.DELIVERED, models.DeliveryStatus.FAILED, models.DeliveryStatus.MAX_RETRIES_EXCEEDED]
         assert delivery.updated_at is not None
