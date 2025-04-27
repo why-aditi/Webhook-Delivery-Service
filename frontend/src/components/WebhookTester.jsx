@@ -86,7 +86,7 @@ export default function WebhookTester() {
       }
 
       console.log('Sending webhook to subscription:', selectedSubscription);
-      const response = await api.post(`/api/ingest/${selectedSubscription}`, payload);
+      const response = await api.post(`/ingest/${selectedSubscription}`, payload);
       console.log('Webhook response:', response.data);
 
       if (!response.data?.delivery_id) {
@@ -124,7 +124,7 @@ export default function WebhookTester() {
     const interval = setInterval(async () => {
       try {
         console.log(`Polling attempt ${attempts + 1} for delivery ID:`, id);
-        const response = await api.get(`/api/deliveries/${id}`);
+        const response = await api.get(`/deliveries/${id}`);
         console.log('Delivery status response:', response.data);
         setDeliveryStatus(response.data);
         
@@ -147,7 +147,7 @@ export default function WebhookTester() {
     
     try {
       console.log('Fetching delivery history for ID:', deliveryId);
-      const response = await api.get(`/api/deliveries/${deliveryId}/history`);
+      const response = await api.get(`/deliveries/${deliveryId}/history`);
       console.log('Delivery history response:', response.data);
       setDeliveryStatus(response.data);
     } catch (err) {

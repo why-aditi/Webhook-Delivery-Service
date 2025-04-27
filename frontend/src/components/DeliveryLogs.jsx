@@ -24,7 +24,7 @@ export default function DeliveryLogs() {
   const fetchDeliveries = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await api.get(`/api/subscriptions/${subscriptionId}/deliveries`);
+      const response = await api.get(`/subscriptions/${subscriptionId}/deliveries`);
       console.log('API Response:', response.data);
       const deliveries = response.data.recent_deliveries || [];
       console.log('Processed Deliveries:', deliveries);
@@ -41,7 +41,7 @@ export default function DeliveryLogs() {
 
   const fetchDeliveryHistory = async (deliveryId) => {
     try {
-      const response = await api.get(`/api/deliveries/${deliveryId}/history`);
+      const response = await api.get(`/deliveries/${deliveryId}/history`);
       console.log('Delivery History Response:', response.data);
       setDeliveryHistory(response.data);
     } catch (err) {

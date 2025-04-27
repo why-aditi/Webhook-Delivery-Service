@@ -13,7 +13,7 @@ export default function EditSubscriptionForm({ subscriptionId, onSubscriptionUpd
   useEffect(() => {
     const fetchSubscription = async () => {
       try {
-        const response = await api.get(`/api/subscriptions/${subscriptionId}`);
+        const response = await api.get(`/subscriptions/${subscriptionId}`);
         const subscription = response.data;
         setFormData({
           target_url: subscription.target_url,
@@ -37,7 +37,7 @@ export default function EditSubscriptionForm({ subscriptionId, onSubscriptionUpd
     try {
       const event_types = formData.event_types.split(',').map(event => event.trim()).filter(Boolean);
       
-      const response = await api.put(`/api/subscriptions/${subscriptionId}`, {
+      const response = await api.put(`/subscriptions/${subscriptionId}`, {
         target_url: formData.target_url,
         event_types,
         secret: formData.secret || undefined

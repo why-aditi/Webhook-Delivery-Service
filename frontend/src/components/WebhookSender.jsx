@@ -17,7 +17,7 @@ export default function WebhookSender({ subscriptionId }) {
     setSuccess(false);
 
     try {
-      await api.post(`/api/ingest/${subscriptionId}`, {
+      await api.post(`/ingest/${subscriptionId}`, {
         event_type: formData.event_type,
         data: formData.data
       });

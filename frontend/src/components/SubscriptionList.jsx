@@ -71,7 +71,7 @@ export default function SubscriptionList() {
     }
 
     try {
-      await api.delete(`/api/subscriptions/${id}`);
+      await api.delete(`/subscriptions/${id}`);
       setSubscriptions(subscriptions.filter(sub => sub.id !== id));
     } catch (err) {
       setError('Failed to delete subscription');

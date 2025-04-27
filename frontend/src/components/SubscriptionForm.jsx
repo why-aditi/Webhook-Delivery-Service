@@ -19,7 +19,7 @@ export default function SubscriptionForm({ onSubscriptionAdded }) {
       // Split event_types into array
       const event_types = formData.event_types.split(',').map(event => event.trim()).filter(Boolean);
 
-      const response = await api.post('/api/subscriptions', {
+      const response = await api.post('/subscriptions', {
         target_url: formData.target_url,
         event_types,
         secret: formData.secret || undefined // Only include if not empty
