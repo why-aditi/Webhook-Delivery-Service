@@ -1,10 +1,11 @@
+from datetime import datetime
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, case, delete
 from . import models, schemas, cache
 from uuid import UUID
 from fastapi import HTTPException
 from .models import DeliveryStatus
-from typing import List
+from typing import List, Optional
 
 async def list_subscriptions(db: AsyncSession) -> List[models.Subscription]:
     """Get all subscriptions."""
@@ -157,4 +158,4 @@ async def get_subscription_delivery_history(
         recent_deliveries=recent_deliveries,
         total_count=total_count,
         success_rate=success_rate
-    ) 
+    )

@@ -13,6 +13,27 @@ from sqlalchemy import select
 from . import models, crud
 from .database import async_session_maker
 
+async def create_delivery_record(
+    session: AsyncSession,
+    subscription_id: str,
+    event_type: str,
+    payload: dict
+) -> models.WebhookDelivery:
+    """Create a new webhook delivery record."""
+    delivery = models.WebhookDelivery(
+        subscription_id=subscription_id,
+        event_type=event_type,
+        payload=payload,
+        status=models.DeliveryStatus.PENDING,
+        retry_count=0,
+        created_at=datetime.utcnow(),
+        updated_at=datetime.utcnow()
+    )
+    session.add(delivery)
+    await session.commit()
+    await session.refresh(delivery)
+    return delivery
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
