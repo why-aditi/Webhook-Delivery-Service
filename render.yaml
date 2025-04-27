@@ -7,7 +7,7 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: DATABASE_URL
-        value: postgresql://database_url_uzal_user:6PYHdacF5Gab3qndKQwbSMWJG1O5XfFp@dpg-d071ook9c44c739k4klg-a/database_url_uzal
+        value: postgresql+asyncpg://database_url_uzal_user:6PYHdacF5Gab3qndKQwbSMWJG1O5XfFp@dpg-d071ook9c44c739k4klg-a/database_url_uzal
       - key: REDIS_URL
         value: redis://red-d071q9ali9vc73eroolg:6379
     healthCheckPath: /docs
