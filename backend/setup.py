@@ -1,0 +1,35 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="webhook-service",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "fastapi==0.104.1",
+        "uvicorn==0.24.0",
+        "sqlalchemy==2.0.23",
+        "asyncpg==0.29.0",
+        "alembic==1.12.1",
+        "redis==5.0.1",
+        "aiohttp==3.9.1",
+        "python-dotenv>=0.19.0",
+        "python-jose>=3.3.0",
+        "passlib>=1.7.4",
+        "pydantic>=2.0.0",
+        "email-validator>=1.1.3",
+    ],
+    extras_require={
+        "dev": [
+            "pytest==7.4.3",
+            "pytest-asyncio==0.21.1",
+            "pytest-cov==4.1.0",
+            "pytest-mock==3.12.0",
+            "httpx==0.25.2",
+            "pytest-aiohttp==1.0.5",
+            "black==23.11.0",
+            "isort==5.12.0",
+            "flake8==6.1.0",
+            "mypy==1.7.1",
+        ],
+    },
+) 
