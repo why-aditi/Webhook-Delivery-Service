@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks, Query
+from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 from . import crud, models, schemas, cache
@@ -8,6 +8,8 @@ from .webhook_processor import process_webhook_delivery, create_delivery_record,
 import asyncio
 import logging
 from typing import List
+import time
+from fastapi.middleware import Middleware
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -22,7 +24,24 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
+
+# Add logging middleware
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    duration = time.time() - start_time
+    
+    logger.info(
+        f"Method: {request.method} Path: {request.url.path} "
+        f"Status: {response.status_code} Duration: {duration:.2f}s "
+        f"Origin: {request.headers.get('origin')} "
+        f"Access-Control-Allow-Origin: {response.headers.get('access-control-allow-origin')}"
+    )
+    
+    return response
 
 @app.on_event("startup")
 async def startup():
@@ -106,9 +125,9 @@ async def ingest_webhook(
         )
     
     # Create delivery record
-    delivery = await create_delivery_record(
+    delivery = await crud.create_delivery_record(
         db=db,
-        subscription_id=str(subscription_id),
+        subscription_id=subscription_id,
         event_type=payload.event_type,
         payload=payload.data
     )

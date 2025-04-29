@@ -159,3 +159,22 @@ async def get_subscription_delivery_history(
         total_count=total_count,
         success_rate=success_rate
     )
+
+async def create_delivery_record(
+    db: AsyncSession,
+    subscription_id: UUID,
+    event_type: str,
+    payload: dict
+) -> models.WebhookDelivery:
+    """Create a new webhook delivery record."""
+    db_delivery = models.WebhookDelivery(
+        subscription_id=subscription_id,
+        event_type=event_type,
+        payload=payload,
+        status=models.DeliveryStatus.PENDING,
+        created_at=datetime.utcnow()
+    )
+    db.add(db_delivery)
+    await db.commit()
+    await db.refresh(db_delivery)
+    return db_delivery
